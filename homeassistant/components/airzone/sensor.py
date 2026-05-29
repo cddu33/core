@@ -68,7 +68,6 @@ SYSTEM_SENSOR_TYPES: Final[tuple[SensorEntityDescription, ...]] = (
         key=AZD_ENERGY,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
-        translation_key="power",
     ),
 )
 

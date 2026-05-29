@@ -148,9 +148,6 @@
           "off": "[%key:common::state::off%]"
         }
       },
-      "power": {
-        "name": "Power"
-      },
       "rssi": {
         "name": "RSSI"
       },
