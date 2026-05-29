@@ -329,6 +329,8 @@ class AirzoneClimate(AirzoneZoneEntity, ClimateEntity):
 
 
 class AirzoneSystemClimate(AirzoneSystemEntity, ClimateEntity):
+    """Define an Airzone global (all zones) climate."""
+
     _attr_translation_key = "all_zones"
     _speeds: dict[int, str]
     _speeds_reverse: dict[str, int]
@@ -499,9 +501,7 @@ class AirzoneSystemClimate(AirzoneSystemEntity, ClimateEntity):
         """Update global climate attributes."""
         self._attr_current_temperature = self._zones_average(AZD_TEMP)
         humidity = self._zones_average(AZD_HUMIDITY)
-        self._attr_current_humidity = (
-            int(round(humidity)) if humidity is not None else None
-        )
+        self._attr_current_humidity = round(humidity) if humidity is not None else None
 
         action = self._master_value(AZD_ACTION)
         self._attr_hvac_action = (
